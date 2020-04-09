@@ -2,7 +2,7 @@
 <% if @subsidiaries.any? %>
   <ul>
     <%= @subsidiaries.each do |s|%>
-      <li><%= link_to s.name, subsidiaries_path(id: s.id) %></li>
+      <li><%= link_to s.name, subsidiary_path(id: s.id) %></li>
   </ul>
 <%end%>
   <%else%>

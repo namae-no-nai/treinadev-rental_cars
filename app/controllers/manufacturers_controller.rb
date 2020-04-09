@@ -16,7 +16,8 @@ class ManufacturersController < ApplicationController
     if @manufacturer.save
       redirect_to @manufacturer
     else
-      render 'new'
+      render :new
+      flash[:alert] = 'Você deve informar o fabricante'
     end
   end
 

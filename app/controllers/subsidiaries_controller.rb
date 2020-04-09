@@ -16,7 +16,8 @@ class  SubsidiariesController < ApplicationController
     if @subsidiary.save
       redirect_to @subsidiary
     else
-      render 'new'
+      render :new
+      flash[:alert] = "Você deve informar todos os dados da filial"
     end
   end
 
