@@ -12,7 +12,7 @@ class ManufacturersController < ApplicationController
   end
 
   def create
-    @manufacturer = Manufacturer.(manufacturer_params)
+    @manufacturer = Manufacturer.create(manufacturer_params)
     if @manufacturer.save
       redirect_to @manufacturer
     else

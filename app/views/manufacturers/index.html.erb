@@ -1,10 +1,10 @@
 <h1>Fabricantes</h1>
 <% if @manufacturers.any? %>
   <ul>
-    <%= @manufacturers.each do |m|%>
+    <% @manufacturers.each do |m|%>
       <li><%= link_to m.name, m %></li>  
-  </ul>
 <%end%>
+  </ul>
   <%else%>
   <p>Nenhum fabricante cadastrado</p>
 <%end%>

@@ -8,7 +8,7 @@ feature 'Admin view subsidiaries' do
     visit root_path
     click_on 'Carros cadastrados'
 
-    expect(page).to have_content('utilitario')
+    expect(page).to have_content('utilitário')
     expect(page).to have_content('SUV')
   end
 
@@ -18,10 +18,10 @@ feature 'Admin view subsidiaries' do
 
     visit root_path
     click_on 'Carros cadastrados'
-    click_on 'utilitario'
+    click_on 'utilitário'
 
-    expect(page).to have_content('utilitario')
-    expect(page).to have_content('12.10')
+    expect(page).to have_content('utilitário')
+    expect(page).to have_content('12.1')
     expect(page).to have_content('32.99')
     expect(page).to have_content('54.33')
     expect(page).not_to have_content('SUV')
@@ -31,7 +31,7 @@ feature 'Admin view subsidiaries' do
     visit root_path
     click_on 'Carros cadastrados'
 
-    expect(page).to have_content('Nenhuma filial cadastrada')
+    expect(page).to have_content('Nenhum carro cadastrado')
   end
 
   scenario 'and return to home page' do
@@ -51,9 +51,9 @@ feature 'Admin view subsidiaries' do
 
     visit root_path
     click_on 'Carros cadastrados'
-    click_on 'utilitario'
+    click_on 'utilitário'
     click_on 'Voltar'
 
-    expect(current_path).to eq subsidiaries_path
+    expect(current_path).to eq car_categories_path
   end
 end

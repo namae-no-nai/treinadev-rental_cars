@@ -1,10 +1,10 @@
 <h1>Filiais</h1>
 <% if @subsidiaries.any? %>
   <ul>
-    <%= @subsidiaries.each do |s|%>
-      <li><%= link_to s.name, subsidiary_path(id: s.id) %></li>
-  </ul>
+    <% @subsidiaries.each do |s|%>
+      <li><%= link_to s.name, s %></li>
 <%end%>
+  </ul>
   <%else%>
   <p>Nenhuma filial cadastrada</p>
 <%end%>
