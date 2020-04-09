@@ -1,0 +1,13 @@
+<h1>Carros</h1>
+<% if @car_categories.any? %>
+  <ul>
+    <%= @car_categories.each do |s|%>
+      <li><%= link_to s.name, car_category_path(id: s.id) %></li>
+  </ul>
+<%end%>
+  <%else%>
+  <p>Nenhuma filial cadastrada</p>
+<%end%>
+
+<p><%= link_to "Cadastrar novo carro", new_car_category_path %></p>
+<p><%= link_to "Voltar", root_path %></p>

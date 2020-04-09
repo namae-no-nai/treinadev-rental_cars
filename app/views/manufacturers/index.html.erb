@@ -2,7 +2,7 @@
 <% if @manufacturers.any? %>
   <ul>
     <%= @manufacturers.each do |m|%>
-      <li><%= link_to m.name, manufacturer_path(id: m.id) %></li>  
+      <li><%= link_to m.name, m %></li>  
   </ul>
 <%end%>
   <%else%>

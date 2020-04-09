@@ -12,12 +12,11 @@ class ManufacturersController < ApplicationController
   end
 
   def create
-    @manufacturer = Manufacturer.create(manufacturer_params)
+    @manufacturer = Manufacturer.(manufacturer_params)
     if @manufacturer.save
       redirect_to @manufacturer
     else
       render :new
-      flash[:alert] = 'Você deve informar o fabricante'
     end
   end
 
