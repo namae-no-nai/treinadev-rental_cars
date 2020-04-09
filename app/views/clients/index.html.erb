@@ -1,0 +1,13 @@
+<h1>Filiais</h1>
+<% if @clients.any? %>
+  <ul>
+    <% @clients.each do |c|%>
+      <li><%= link_to c.name, c %></li>
+<%end%>
+  </ul>
+  <%else%>
+  <p>Nenhuma filial cadastrada</p>
+<%end%>
+
+<p><%= link_to "Cadastrar cliente", new_client_path %></p>
+<p><%= link_to "Voltar", root_path %></p>
