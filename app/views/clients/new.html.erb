@@ -1,9 +1,5 @@
-<%= form_for @client do |c|%>
-  <%= c.label :name, "Nome"%>
-  <%= c.text_field :name %>
-  <%= c.label :document, "CPF"%>
-  <%= c.text_field :document %>
-  <%= c.label :email, "Email"%>
-  <%= c.text_field :email %>
-  <%= c.submit "Enviar" %>
-<%end%>
+<p>Cadastrar novo usuário<p>
+
+<%= render 'form'%>
+
+<p><%= link_to "Voltar", clients_path %></p>

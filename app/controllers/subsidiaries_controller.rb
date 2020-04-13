@@ -14,11 +14,29 @@ class  SubsidiariesController < ApplicationController
   def create
     @subsidiary = Subsidiary.create(subsidiary_params)
     if @subsidiary.save
+      flash[:alert] = "Filial cadastrada com sucesso"
       redirect_to @subsidiary
     else
+      flash[:alert] = 'Você deve informar todos os dados'
       render :new
     end
   end
+
+  def edit
+    @subsidiary = Subsidiary.find(params[:id])
+  end
+
+  def update
+    @subsidiary = Subsidiary.find(params[:id])
+
+    if @subsidiary.update(subsidiary_params)
+      redirect_to @subsidiary
+    else
+      flash[:alert] = 'Você deve informar todos os dados'
+      render :new
+    end
+  end
+
 
   private
 

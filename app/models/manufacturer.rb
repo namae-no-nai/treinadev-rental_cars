@@ -1,3 +1,3 @@
 class Manufacturer < ApplicationRecord
-  validates :name, presence: true
+  validates :name, presence: {message: 'Você deve informar o fabricante'}
 end

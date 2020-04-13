@@ -2,8 +2,8 @@ require 'rails_helper'
 
 feature 'Admin view subsidiaries' do
   scenario 'successfully' do
-    Subsidiary.create!(name: 'Nova', cnpj: '12.345.678/9999-99', address: 'rua sem nome, 00')
-    Subsidiary.create!(name: 'Outra', cnpj: '33.333.333/9999-99', address: 'rua sem outro nome, 00')
+    Subsidiary.create!(name: 'Nova', cnpj: '12345678999999', address: 'rua sem nome, 00')
+    Subsidiary.create!(name: 'Outra', cnpj: '33333333999999', address: 'rua sem outro nome, 00')
 
     visit root_path
     click_on 'Filiais'
@@ -13,15 +13,15 @@ feature 'Admin view subsidiaries' do
   end
 
   scenario 'and view details' do
-    Subsidiary.create!(name: 'Nova', cnpj: '12.345.678/9999-99', address: 'rua sem nome, 00')
-    Subsidiary.create!(name: 'Outra', cnpj: '33.333.333/9999-99', address: 'rua sem outro nome, 00')
+    Subsidiary.create!(name: 'Nova', cnpj: '12345678999999', address: 'rua sem nome, 00')
+    Subsidiary.create!(name: 'Outra', cnpj: '33333333999999', address: 'rua sem outro nome, 00')
 
     visit root_path
     click_on 'Filiais'
     click_on 'Nova'
 
     expect(page).to have_content('Nova')
-    expect(page).to have_content('12.345.678/9999-99')
+    expect(page).to have_content('12345678999999')
     expect(page).to have_content('rua sem nome, 00')
     expect(page).not_to have_content('Outra')
   end
@@ -34,8 +34,8 @@ feature 'Admin view subsidiaries' do
   end
 
   scenario 'and return to home page' do
-    Subsidiary.create!(name: 'Nova', cnpj: '12.345.678/9999-99', address: 'rua sem nome, 00')
-    Subsidiary.create!(name: 'Outra', cnpj: '33.333.333/9999-99', address: 'rua sem outro nome, 00')
+    Subsidiary.create!(name: 'Nova', cnpj: '12345678999999', address: 'rua sem nome, 00')
+    Subsidiary.create!(name: 'Outra', cnpj: '33333333999999', address: 'rua sem outro nome, 00')
 
     visit root_path
     click_on 'Filiais'
@@ -45,8 +45,8 @@ feature 'Admin view subsidiaries' do
   end
 
   scenario 'and return to subsidiaries page' do
-    Subsidiary.create!(name: 'Nova', cnpj: '12.345.678/9999-99', address: 'rua sem nome, 00')
-    Subsidiary.create!(name: 'Outra', cnpj: '33.333.333/9999-99', address: 'rua sem outro nome, 00')
+    Subsidiary.create!(name: 'Nova', cnpj: '12345678999999', address: 'rua sem nome, 00')
+    Subsidiary.create!(name: 'Outra', cnpj: '33333333999999', address: 'rua sem outro nome, 00')
 
     visit root_path
     click_on 'Filiais'
