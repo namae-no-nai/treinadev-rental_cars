@@ -14,6 +14,7 @@ class  CarCategoriesController < ApplicationController
   def create
     @car_category = CarCategory.create(car_category_params)
     if @car_category.save
+      flash[:alert] = "Categoria cadastrada com sucesso"  
       redirect_to @car_category
     else
       render :new

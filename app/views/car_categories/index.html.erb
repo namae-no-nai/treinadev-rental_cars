@@ -1,4 +1,4 @@
-<h1>Carros</h1>
+<h1>Categorias de Carros</h1>
 <% if @car_categories.any? %>
   <ul>
     <% @car_categories.each do |c|%>
@@ -9,5 +9,5 @@
   <p>Nenhum carro cadastrado</p>
 <%end%>
 
-<p><%= link_to "Cadastrar novo carro", new_car_category_path %></p>
+<p><%= link_to "Cadastrar nova categoria", new_car_category_path %></p>
 <p><%= link_to "Voltar", root_path %></p>

@@ -31,8 +31,8 @@ feature 'User update subsidiary' do
     click_on 'Nova'
     click_on 'Editar'
 
-    fill_in 'Nome', with: 'Filial A'
     fill_in 'CNPJ', with: '12345678999999'
+    fill_in 'Endereço', with: ""
     
     click_on 'Enviar'
 

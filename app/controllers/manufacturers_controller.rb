@@ -14,10 +14,10 @@ class ManufacturersController < ApplicationController
   def create
     @manufacturer = Manufacturer.new(manufacturer_params)
     if @manufacturer.save
-      flash[:success] = "Fabricante registrado com sucesso"
+      flash[:alert] = "Fabricante registrado com sucesso"
       redirect_to @manufacturer
     else
-      flash[:notice] = 'Você deve informar todos os dados'
+      flash[:alert] = @manufacturer.errors[:name]
       render action: 'new'
     end
   end

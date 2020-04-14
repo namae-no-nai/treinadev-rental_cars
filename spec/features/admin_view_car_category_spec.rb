@@ -6,7 +6,7 @@ feature 'Admin view subsidiaries' do
     CarCategory.create!(name: 'SUV',  daily_rate: '12.22', car_insurance: '15.99', third_party_insurance: '33.33')
 
     visit root_path
-    click_on 'Carros cadastrados'
+    click_on 'Categorias cadastradas'
 
     expect(page).to have_content('utilitário')
     expect(page).to have_content('SUV')
@@ -17,7 +17,7 @@ feature 'Admin view subsidiaries' do
     CarCategory.create!(name: 'SUV',  daily_rate: '12.22', car_insurance: '15.99', third_party_insurance: '33.33')
 
     visit root_path
-    click_on 'Carros cadastrados'
+    click_on 'Categorias cadastradas'
     click_on 'utilitário'
 
     expect(page).to have_content('utilitário')
@@ -29,7 +29,7 @@ feature 'Admin view subsidiaries' do
 
   scenario 'and no subsidiaries are created' do
     visit root_path
-    click_on 'Carros cadastrados'
+    click_on 'Categorias cadastradas'
 
     expect(page).to have_content('Nenhum carro cadastrado')
   end
@@ -39,7 +39,7 @@ feature 'Admin view subsidiaries' do
     CarCategory.create!(name: 'SUV',  daily_rate: '12.22', car_insurance: '15.99', third_party_insurance: '33.33')
 
     visit root_path
-    click_on 'Carros cadastrados'
+    click_on 'Categorias cadastradas'
     click_on 'Voltar'
 
     expect(current_path).to eq root_path
@@ -50,7 +50,7 @@ feature 'Admin view subsidiaries' do
     CarCategory.create!(name: 'SUV',  daily_rate: '12.22', car_insurance: '15.99', third_party_insurance: '33.33')
 
     visit root_path
-    click_on 'Carros cadastrados'
+    click_on 'Categorias cadastradas'
     click_on 'utilitário'
     click_on 'Voltar'
 
