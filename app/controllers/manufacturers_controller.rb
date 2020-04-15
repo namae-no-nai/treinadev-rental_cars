@@ -17,8 +17,7 @@ class ManufacturersController < ApplicationController
       flash[:alert] = "Fabricante registrado com sucesso"
       redirect_to @manufacturer
     else
-      flash[:alert] = @manufacturer.errors[:name]
-      render action: 'new'
+      render :new
     end
   end
 
@@ -28,13 +27,16 @@ class ManufacturersController < ApplicationController
 
   def update
     @manufacturer = Manufacturer.find(params[:id])
-
     if @manufacturer.update(manufacturer_params)
       redirect_to @manufacturer
     else
-      flash[:alert] = @manufacturer.errors[:name]
-      render :new
+      render :edit
     end
+  end
+
+  def destroy
+    @manufacturer = Manufacturer.destroy(manufacturer_params)
+    redirect_to manufacturers_path
   end
 
   private

@@ -17,7 +17,6 @@ class  SubsidiariesController < ApplicationController
       flash[:alert] = "Filial cadastrada com sucesso"
       redirect_to @subsidiary
     else
-      flash[:alert] = @manufacturer.errors[:name]
       render :new
     end
   end
@@ -32,8 +31,7 @@ class  SubsidiariesController < ApplicationController
     if @subsidiary.update(subsidiary_params)
       redirect_to @subsidiary
     else
-      flash[:alert] = "Você deve informar todos os dados"
-      render :new
+      render :edit
     end
   end
 

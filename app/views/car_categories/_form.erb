@@ -1,3 +1,7 @@
+<%@car_category.errors.full_messages.each do |message|%>
+  <%=message%>
+<%end%>
+
 <%= form_for @car_category do |c|%>
   <%= c.label :name, "Categoria"%>
   <%= c.text_field :name %>

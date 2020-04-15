@@ -1,6 +1,10 @@
+<%@manufacturer.errors.full_messages.each do |message|%>
+  <%=message%>
+<%end%>
+
 <%= form_for @manufacturer do |m|%>
   
   <%= m.label :name, "Nome"%>
-  <p><%= m.text_field :name %></p>
+  <%= m.text_field :name %>
   <%= m.submit "Enviar" %>
 <%end%>
