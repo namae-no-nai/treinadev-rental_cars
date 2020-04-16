@@ -21,5 +21,20 @@ describe Subsidiary, type: :model do
       expect(subsidiary.errors[:name]).to include('Nome já cadastrado')
       expect(subsidiary.errors[:cnpj]).to include ('CNPJ já cadastrado')
     end
+    it 'must have 14 digits' do
+    subsidiary = Subsidiary.new(name: 'Honda', cnpj: '123456789012345', address: "rua qualquer")
+
+    subsidiary.valid?
+    
+    expect(subsidiary.errors[:cnpj]).to include('CNPJ deve conter 14 dígitos')
+    end
+    
+    it 'must have only digits' do
+      subsidiary = Subsidiary.new(name: 'Honda', cnpj: '1234567890/123', address: "rua qualquer")
+  
+      subsidiary.valid?
+      
+      expect(subsidiary.errors[:cnpj]).to include('CNPJ deve conter apenas números')
+    end
   end
 end

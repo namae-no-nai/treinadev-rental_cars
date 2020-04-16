@@ -3,14 +3,14 @@ require 'rails_helper'
 feature 'Admin register car category' do
   scenario 'from index page' do
     visit root_path
-    click_on 'Categorias cadastradas'
+    click_on 'Categorias de carros'
 
     expect(page).to have_link('Cadastrar nova categoria', href: new_car_category_path)
   end
 
   scenario 'successfully' do
     visit root_path
-    click_on 'Categorias cadastradas'
+    click_on 'Categorias de carros'
     click_on 'Cadastrar nova categoria'
 
     fill_in 'Categoria', with: 'utilitário'
