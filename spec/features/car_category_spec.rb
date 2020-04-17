@@ -7,9 +7,9 @@ describe CarCategory, type: :model do
 
       car_category.valid?
 
-      expect(car_category.errors[:name]).to include('Nome não pode ficar em branco')
-      expect(car_category.errors[:daily_rate]).to include('Seguro do carro não pode ficar em branco')
-      expect(car_category.errors[:car_insurance]).to include('Seguro do Carro não pode ficar em branco')
+      expect(car_category.errors[:name]).to include('Categoria não pode ficar em branco')
+      expect(car_category.errors[:daily_rate]).to include('Diária não pode ficar em branco')
+      expect(car_category.errors[:car_insurance]).to include('Seguro do carro não pode ficar em branco')
       expect(car_category.errors[:third_party_insurance]).to include('Seguro contra terceiros não pode ficar em branco')
     end
 
@@ -19,7 +19,7 @@ describe CarCategory, type: :model do
 
       car_category.valid?
 
-      expect(car_category.errors[:name]).to include('Nome deve ser único')
+      expect(car_category.errors[:name]).to include('Categoria já cadastrada')
     end
   end
 end

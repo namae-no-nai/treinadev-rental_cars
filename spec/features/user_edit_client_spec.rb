@@ -93,10 +93,10 @@ feature 'User edits client' do
     click_on 'Editar'
 
     fill_in 'Nome', with: 'Nova'
-    fill_in 'CPF', with: '012345678901'
-    fill_in 'Email', with: 'nome@eu.com'
+    fill_in 'CPF', with: '12345678901'
+    fill_in 'Email', with: 'nomeeu.com'
     click_on 'Enviar'
 
-    expect(page).to have_content('Email inválido')
+    expect(page).to have_content('Email incorreto')
   end  
 end

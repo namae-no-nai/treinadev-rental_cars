@@ -5,7 +5,7 @@ feature 'Admin register valid car category' do
     CarCategory.create!(name: 'SUV', daily_rate: '19.99', car_insurance: '22.30', third_party_insurance: '12.30')
     visit root_path
     click_on 'Categorias de carros'
-    click_on 'Registrar novo categoria'
+    click_on 'Cadastrar nova categoria'
 
     fill_in 'Nome', with: 'SUV'
     fill_in 'Diária', with: '19.00'
@@ -19,7 +19,7 @@ feature 'Admin register valid car category' do
   scenario 'and name can not be blank' do
     visit root_path
     click_on 'Categorias de carros'
-    click_on 'Registrar novo categoria'
+    click_on 'Cadastrar nova categoria'
 
     fill_in 'Nome', with: 'SUV'
     fill_in 'Diária', with: '19.00'
