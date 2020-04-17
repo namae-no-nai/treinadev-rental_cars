@@ -2,20 +2,20 @@ require 'rails_helper'
 
 feature 'Admin edits car category' do
   scenario 'successfully' do
-    CarCategory.create(name: 'SUV', daily_rate: '19.99', car_insurance: '22.30', third_party_insurance: '12.30')
+    CarCategory.create(name: 'SUV', daily_rate: '19.99', car_insurance: '22.39', third_party_insurance: '12.39')
 
     visit root_path
     click_on 'Categorias de carros'
     click_on 'SUV'
     click_on 'Editar'
     fill_in 'Categoria', with: 'compacto'
-    fill_in 'Diária', with: '19.10'
+    fill_in 'Diária', with: '19.11'
     fill_in 'Seguro do carro', with: '13.24'
-    fill_in 'Seguro contra terceiros', with: '14.33'
+    fill_in 'Seguro contra terceiros', with: '13.33'
     click_on 'Enviar'
 
     expect(page).to have_content('compacto')
-    expect(page).to have_content('19.10')
+    expect(page).to have_content('19.11')
     expect(page).to have_content('13.24')
     expect(page).to have_content('13.33')
   end
