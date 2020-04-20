@@ -2,6 +2,6 @@
 <h1><%= @client.document %></h1><br>
 <h1><%= @client.email %></h1><br>
 
-<p><%= link_to "Apagar cliente", clients_path(@manufacturer) %></p>
+<p><%= link_to "Apagar cliente", @client, method: :delete %></p>
 <p><%= link_to "Editar", edit_client_path %></p>
 <p><%= link_to "Voltar", clients_path %></p>

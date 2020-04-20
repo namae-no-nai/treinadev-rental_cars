@@ -9,7 +9,7 @@ feature 'Admin deletes car_catergory' do
     click_on 'SUV'
     click_on 'Apagar categoria'
 
-    expect(current_path).to eq car_cateories_path
+    expect(current_path).to eq car_categories_path
     expect(page).to have_content('Nenhuma categoria de carro cadastrada')
   end
 
@@ -22,14 +22,11 @@ feature 'Admin deletes car_catergory' do
     click_on 'SUV'
     click_on 'Apagar categoria'
 
-    expect(current_path).to eq car_cateories_path
+    expect(current_path).to eq car_categories_path
     expect(page).not_to have_content('SUV')
     expect(page).not_to have_content('19.99')
     expect(page).not_to have_content('10.00')
     expect(page).not_to have_content('12.99')
     expect(page).to have_content('compacto')
-    expect(page).to have_content('20.12')
-    expect(page).to have_content('15.00')
-    expect(page).to have_content('19.00')
   end
 end

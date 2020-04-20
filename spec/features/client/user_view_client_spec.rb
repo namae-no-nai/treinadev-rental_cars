@@ -30,7 +30,7 @@ feature 'User view Clients' do
     visit root_path
     click_on 'Clientes'
 
-    expect(page).to have_content('Nenhuma filial cadastrada')
+    expect(page).to have_content('Nenhum cliente cadastrado')
   end
 
   scenario 'and return to home page' do

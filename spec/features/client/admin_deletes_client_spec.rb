@@ -7,10 +7,10 @@ feature 'Admin deletes client' do
     visit root_path
     click_on 'Clientes'
     click_on 'Algum nome'
-    click_on 'Apagar Cliente'
+    click_on 'Apagar cliente'
 
     expect(current_path).to eq clients_path
-    expect(page).to have_content('Nenhum fabricante cadastrado')
+    expect(page).to have_content('Nenhum cliente cadastrado')
   end
 
   scenario 'and keep anothers' do
@@ -20,14 +20,12 @@ feature 'Admin deletes client' do
     visit root_path
     click_on 'Clientes'
     click_on 'Algum nome'
-    click_on 'Apagar Cliente'
+    click_on 'Apagar cliente'
 
     expect(current_path).to eq clients_path
     expect(page).not_to have_content('Fiat')
     expect(page).not_to have_content('12345678901')
     expect(page).not_to have_content("algum@algumacoisa.com")
     expect(page).to have_content('Outro nome')
-    expect(page).to have_content('12345678902')
-    expect(page).to have_content('outro@algumacoisa.com')
   end
 end

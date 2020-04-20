@@ -2,6 +2,6 @@
 <h1><%= @subsidiary.cnpj %></h1><br>
 <h1><%= @subsidiary.address %></h1><br>
 
-<p><%= link_to "Apagar filial", subsidiaries_path(@manufacturer) %></p>
+<p><%= link_to "Apagar filial", @subsidiary, method: :delete %></p>
 <p><%= link_to "Editar", edit_subsidiary_path %></p>
 <p><%= link_to "Voltar", subsidiaries_path %></p>

@@ -31,7 +31,7 @@ feature 'Admin view subsidiaries' do
     visit root_path
     click_on 'Categorias de carros'
 
-    expect(page).to have_content('Nenhum carro cadastrado')
+    expect(page).to have_content('Nenhuma categoria de carro cadastrada')
   end
 
   scenario 'and return to home page' do

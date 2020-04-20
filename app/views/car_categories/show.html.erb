@@ -3,7 +3,7 @@
 <h1><%= number_to_currency(@car_category.car_insurance) %></h1><br>
 <h1><%= number_to_currency(@car_category.third_party_insurance) %></h1><br>
 
-<p><%= link_to "Apagar categoria", car_categories_path(@manufacturer) %></p>
+<p><%= link_to "Apagar categoria", @car_category, method: :delete %></p>
 <p><%= link_to "Editar", edit_car_category_path %></p>
 <p><%= link_to "Voltar", car_categories_path %></p>
 

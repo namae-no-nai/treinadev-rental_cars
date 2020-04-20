@@ -27,7 +27,5 @@ feature 'Admin deletes subsidiary' do
     expect(page).not_to have_content('12345678901234')
     expect(page).not_to have_content('rua sem nome')
     expect(page).to have_content('Outra')
-    expect(page).to have_content('12345678901235')
-    expect(page).to have_content('rua sem outro nome')
   end
 end

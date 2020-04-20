@@ -35,8 +35,9 @@ class ManufacturersController < ApplicationController
   end
 
   def destroy
-    Manufacturer.find(params[:id]).destroy
-    redirect_to @manufacturer
+    @manufacturer = Manufacturer.find(params[:id])
+    @manufacturer.destroy
+    redirect_to manufacturers_path
   end
 
   private
