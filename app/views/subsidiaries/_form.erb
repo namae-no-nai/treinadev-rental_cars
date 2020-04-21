@@ -1,13 +1,13 @@
 <%@subsidiary.errors.full_messages.each do |message|%>
-  <%=message%>
+  <b><%=message%></b></br>
 <%end%>
 
 <%= form_for @subsidiary do |s|%>
   <%= s.label :name, "Nome"%>
-  <%= s.text_field :name %>
+  <%= s.text_field :name %></br></br>
   <%= s.label :cnpj, "CNPJ"%>
-  <%= s.text_field :cnpj %>
+  <%= s.text_field :cnpj %></br></br>
   <%= s.label :address, "Endereço"%>
-  <%= s.text_field :address %>
+  <%= s.text_field :address %></br></br>
   <%= s.submit "Enviar" %>
 <%end%>

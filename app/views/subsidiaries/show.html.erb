@@ -1,7 +1,12 @@
-<h1><%= @subsidiary.name %></h1><br>
-<h1><%= @subsidiary.cnpj %></h1><br>
-<h1><%= @subsidiary.address %></h1><br>
-
+<div>
+<dl>
+  <dt><h1><%= "Filial #{@subsidiary.name}" %><h1></dt>
+    <dd><%= "CNPJ: #{@subsidiary.cnpj}" %></dd><br>
+    <dd><%= "Endereço: #{@subsidiary.address} "%></dd><br>
+</dl>
+</div>
+<div>
 <p><%= link_to "Apagar filial", @subsidiary, method: :delete %></p>
 <p><%= link_to "Editar", edit_subsidiary_path %></p>
 <p><%= link_to "Voltar", subsidiaries_path %></p>
+</div>

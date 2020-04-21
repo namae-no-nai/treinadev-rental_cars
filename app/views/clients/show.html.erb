@@ -1,7 +1,12 @@
-<h1><%= @client.name %></h1><br>
-<h1><%= @client.document %></h1><br>
-<h1><%= @client.email %></h1><br>
-
+<div>
+<dl>
+  <dd><h1><%= @client.name %></h1></dd><br>
+    <dt><h1><%="CPF: #{@client.document}" %></h1></dt><br>
+    <dt><h1><%="Email: #{@client.email}" %></h1></dt><br>
+</dl>
+</div>
+<div>
 <p><%= link_to "Apagar cliente", @client, method: :delete %></p>
 <p><%= link_to "Editar", edit_client_path %></p>
 <p><%= link_to "Voltar", clients_path %></p>
+</div>

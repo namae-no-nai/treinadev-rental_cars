@@ -1,15 +1,15 @@
 <%@car_category.errors.full_messages.each do |message|%>
-  <%=message%>
+ <b><%= message %><b></br>
 <%end%>
 
 <%= form_for @car_category do |c|%>
   <%= c.label :name, "Categoria"%>
-  <%= c.text_field :name %>
+  <%= c.text_field :name %></br></br>
   <%= c.label :daily_rate, "Diária"%>
-  <%= c.text_field :daily_rate %>
+  <%= c.text_field :daily_rate %></br></br>
   <%= c.label :car_insurance, "Seguro do carro"%>
-  <%= c.text_field :car_insurance %>
+  <%= c.text_field :car_insurance %></br></br>
   <%= c.label :third_party_insurance, "Seguro contra terceiros"%>
-  <%= c.text_field :third_party_insurance %>
+  <%= c.text_field :third_party_insurance %></br></br>
   <%= c.submit "Enviar" %>
 <%end%>
