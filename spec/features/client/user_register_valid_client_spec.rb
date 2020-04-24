@@ -2,15 +2,14 @@ require 'rails_helper'
 
 feature 'User register valid client' do
   scenario 'and must be unique' do
-    Client.create(name: 'Nome', document: '12345678901', email: 'eu@algumacoisa.com')
-    Client.create(name: 'Outro nome', document: '12345678901', email: 'eu@algumacoisa.com')
-
+    Client.create(name: 'Nome', document: '892.317.680-00', email: 'eu@algumacoisa.com')
+   
     visit root_path
     click_on 'Clientes'
     click_on 'Cadastrar cliente'
 
     fill_in 'Nome', with: 'Nome'
-    fill_in 'CPF', with: '12345678901'
+    fill_in 'CPF', with: '892.317.680-00'
     fill_in 'Email', with: 'eu@algumacoisa.com'
     click_on 'Enviar'
 
@@ -33,30 +32,30 @@ feature 'User register valid client' do
     expect(page).to have_content('Email não pode ficar em branco')
   end
 
-  scenario 'and must have 11' do
+  scenario 'incorret' do
     visit root_path
     click_on 'Clientes'
     click_on 'Cadastrar cliente'
 
     fill_in 'Nome', with: 'Nome'
-    fill_in 'CPF', with: '0123456789012345'
+    fill_in 'CPF', with: '43481057075'
     fill_in 'Email', with: 'nome@eu.com'
     click_on 'Enviar'
 
-    expect(page).to have_content('CPF deve conter 11 dígitos')
+    expect(page).to have_content('CPF incorreto')
   end
  
-  scenario 'only numbers' do
+  scenario 'exist' do
     visit root_path
     click_on 'Clientes'
     click_on 'Cadastrar cliente'
 
     fill_in 'Nome', with: 'Nova'
-    fill_in 'CPF', with: '0123456789/2'
+    fill_in 'CPF', with: '999.999.999-99'
     fill_in 'Email', with: 'nome@eu.com'
     click_on 'Enviar'
 
-    expect(page).to have_content('CPF deve conter apenas números')
+    expect(page).to have_content('CPF não é válido')
   end
 
   scenario 'email format' do

@@ -13,28 +13,29 @@ describe Subsidiary, type: :model do
     end
 
     it 'must be uniq' do
-      Subsidiary.create!(name: 'Honda', cnpj: '12345678901234', address:"rua qualquer")
-      subsidiary = Subsidiary.new(name: 'Honda', cnpj: '12345678901234', address: "rua qualquer")
+      Subsidiary.create!(name: 'Honda', cnpj: '91.298.062/0001-87', address:"rua qualquer")
+      subsidiary = Subsidiary.new(name: 'Honda', cnpj: '91.298.062/0001-87', address: "rua qualquer")
 
       subsidiary.valid?
 
       expect(subsidiary.errors[:name]).to include('Nome já cadastrado')
       expect(subsidiary.errors[:cnpj]).to include ('CNPJ já cadastrado')
     end
-    it 'must have 14 digits' do
-    subsidiary = Subsidiary.new(name: 'Honda', cnpj: '123456789012345', address: "rua qualquer")
 
-    subsidiary.valid?
-    
-    expect(subsidiary.errors[:cnpj]).to include('CNPJ deve conter 14 dígitos')
-    end
-    
-    it 'must have only digits' do
-      subsidiary = Subsidiary.new(name: 'Honda', cnpj: '1234567890/123', address: "rua qualquer")
+    it 'must exist' do
+      subsidiary = Subsidiary.new(name: 'Honda', cnpj: '91298062000132', address: "rua qualquer")
   
       subsidiary.valid?
       
-      expect(subsidiary.errors[:cnpj]).to include('CNPJ deve conter apenas números')
+      expect(subsidiary.errors[:cnpj]).to include('CNPJ incorreto')
+    end
+
+    it 'must exist' do
+      subsidiary = Subsidiary.new(name: 'Honda', cnpj: '91.298.062/0001-32', address: "rua qualquer")
+  
+      subsidiary.valid?
+      
+      expect(subsidiary.errors[:cnpj]).to include('CNPJ não é válido')
     end
   end
 end

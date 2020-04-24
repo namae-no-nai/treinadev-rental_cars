@@ -1,0 +1,19 @@
+<%@car_model.errors.full_messages.each do |message|%>
+ <b><%= message %><b></br>
+<%end%>
+
+<%= form_for @car_model do |c|%>
+  <%= c.label :name, "Nome"%>
+  <%= c.text_field :name %></br></br>
+  <%= c.label :year, "Ano"%>
+  <%= c.text_field :year %></br></br>
+  <%= c.label :manufacturer_id, 'Fabricante' %>
+  <%= c.collection_select :manufacturer_id, @manufacturers, :id, :name %>
+  <%= c.label :motorization, "Cavalos"%>
+  <%= c.text_field :motorization %></br></br>
+  <%= c.label :car_category_id, 'Categoria' %>
+  <%= c.collection_select :car_category_id, @car_categories, :id, :name %>
+  <%= c.label :fuel_type, "Tipo de combustível"%>
+  <%= c.text_field :fuel_type %></br></br>
+  <%= c.submit "Enviar" %>
+<%end%>

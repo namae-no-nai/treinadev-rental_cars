@@ -2,8 +2,8 @@ require 'rails_helper'
 
 feature 'User view Clients' do
   scenario 'successfully' do
-    Client.create!(name: 'Algum nome', document: '12345678901', email: 'algumacois@outracoisa.com')
-    Client.create!(name: 'Outro nome', document: '33333333999', email: 'outracois@outracoisa.com')
+    Client.create!(name: 'Algum nome', document: '766.075.700-89', email: 'algumacois@outracoisa.com')
+    Client.create!(name: 'Outro nome', document: '892.317.680-00', email: 'outracois@outracoisa.com')
 
     visit root_path
     click_on 'Clientes'
@@ -13,15 +13,15 @@ feature 'User view Clients' do
   end
 
   scenario 'and view details' do
-    Client.create!(name: 'Algum nome', document: '12345678901', email: 'algumacois@outracoisa.com')
-    Client.create!(name: 'Outro nome', document: '33333333999', email: 'outracois@outracoisa.com')
+    Client.create!(name: 'Algum nome', document: '766.075.700-89', email: 'algumacois@outracoisa.com')
+    Client.create!(name: 'Outro nome', document: '892.317.680-00', email: 'outracois@outracoisa.com')
 
     visit root_path
     click_on 'Clientes'
     click_on 'Algum nome'
 
     expect(page).to have_content('Algum nome')
-    expect(page).to have_content('12345678901')
+    expect(page).to have_content('766.075.700-89')
     expect(page).to have_content('algumacois@outracoisa.com')
     expect(page).not_to have_content('Outro nome')
   end
@@ -34,8 +34,8 @@ feature 'User view Clients' do
   end
 
   scenario 'and return to home page' do
-    Client.create!(name: 'Algum nome', document: '12345678901', email: 'algumacois@outracoisa.com')
-    Client.create!(name: 'Outro nome', document: '33333333999', email: 'outracois@outracoisa.com')
+    Client.create!(name: 'Algum nome', document: '766.075.700-89', email: 'algumacois@outracoisa.com')
+    Client.create!(name: 'Outro nome', document: '892.317.680-00', email: 'outracois@outracoisa.com')
 
     visit root_path
     click_on 'Clientes'
@@ -45,8 +45,8 @@ feature 'User view Clients' do
   end
 
   scenario 'and return to clients page' do
-    Client.create!(name: 'Algum nome', document: '12345678901', email: 'algumacois@outracoisa.com')
-    Client.create!(name: 'Outro nome', document: '33333333999', email: 'outracois@outracoisa.com')
+    Client.create!(name: 'Algum nome', document: '766.075.700-89', email: 'algumacois@outracoisa.com')
+    Client.create!(name: 'Outro nome', document: '892.317.680-00', email: 'outracois@outracoisa.com')
 
     visit root_path
     click_on 'Clientes'

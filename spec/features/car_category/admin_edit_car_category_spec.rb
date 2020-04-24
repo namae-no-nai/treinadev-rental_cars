@@ -20,7 +20,7 @@ feature 'Admin edits car category' do
     expect(page).to have_content('13.33')
   end
 
-  scenario 'successfully' do
+  scenario 'can not be blank' do
     CarCategory.create(name: 'SUV', daily_rate: '19.99', car_insurance: '22.30', third_party_insurance: '12.30')
 
     visit root_path
@@ -39,7 +39,7 @@ feature 'Admin edits car category' do
     expect(page).to have_content('Seguro contra terceiros não pode ficar em branco')
   end
 
-  scenario 'successfully' do
+  scenario 'unique' do
     CarCategory.create!(name: 'SUV', daily_rate: '19.99', car_insurance: '22.30', third_party_insurance: '12.30')
     CarCategory.create!(name: 'compacto', daily_rate: '19.99', car_insurance: '22.30', third_party_insurance: '12.30')
 
@@ -55,4 +55,24 @@ feature 'Admin edits car category' do
 
     expect(page).to have_content('Categoria já cadastrada')
   end
+
+  scenario 'greater than 0' do
+
+  CarCategory.create!(name: 'A', daily_rate: '19.99', car_insurance: '22.30', third_party_insurance: '12.30')
+
+    visit root_path
+    click_on 'Categorias de carros'
+    click_on 'A'
+    click_on 'Editar'
+    fill_in 'Categoria', with: 'A'
+    fill_in 'Diária', with: '0'
+    fill_in 'Seguro do carro', with: '0'
+    fill_in 'Seguro contra terceiros', with: '0'
+    click_on 'Enviar'
+
+    expect(page).to have_content("O valor da diária deve ser maior que 0.00")
+    expect(page).to have_content("O valor do seguro do carro deve ser maior que 0.00")
+    expect(page).to have_content("O valor do seguro contra teceiros deve ser maior que 0.00")
+  end
 end
+

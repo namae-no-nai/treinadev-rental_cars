@@ -2,13 +2,13 @@ require 'rails_helper'
 
 feature 'Admin register valid subsidiary' do
   scenario 'and name must be unique' do
-    Subsidiary.create(name: 'Nova', cnpj: '12345678901234', address: "rua sem nome" )
+    Subsidiary.create(name: 'Nova', cnpj: '31.538.806/0001-61', address: "rua sem nome" )
     visit root_path
     click_on 'Filiais'
     click_on 'Registrar nova filial'
 
     fill_in 'Nome', with: 'Nova'
-    fill_in 'CNPJ', with: '12345678901234'
+    fill_in 'CNPJ', with: '31.538.806/0001-61'
     fill_in 'Endereço', with: 'rua sem nome'
     click_on 'Enviar'
 
@@ -30,29 +30,29 @@ feature 'Admin register valid subsidiary' do
     expect(page).to have_content('CNPJ não pode ficar em branco')
     expect(page).to have_content('Endereço não pode ficar em branco')
   end
-  scenario 'and must have 14' do
+  scenario 'format' do
     visit root_path
     click_on 'Filiais'
     click_on 'Registrar nova filial'
 
     fill_in 'Nome', with: 'Nova'
-    fill_in 'CNPJ', with: '0123456789012345'
+    fill_in 'CNPJ', with: '31.538.806/000161'
     fill_in 'Endereço', with: 'rua sem nome'
     click_on 'Enviar'
 
-    expect(page).to have_content('CNPJ deve conter 14 dígitos')
+    expect(page).to have_content('CNPJ incorreto')
   end
-  scenario 'only numebers' do
+  scenario 'exist' do
     visit root_path
     click_on 'Filiais'
     click_on 'Registrar nova filial'
 
     fill_in 'Nome', with: 'Nova'
-    fill_in 'CNPJ', with: '0123456789/2345'
+    fill_in 'CNPJ', with: '31.538.806/0001-00'
     fill_in 'Endereço', with: 'rua sem nome'
     click_on 'Enviar'
 
-    expect(page).to have_content('CNPJ deve conter apenas números')
+    expect(page).to have_content('CNPJ não é válido')
   end
 
 end

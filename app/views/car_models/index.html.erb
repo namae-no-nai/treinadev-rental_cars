@@ -1,0 +1,31 @@
+<h1>Modelos de carros</h1>
+<div>
+<% if @car_models.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Fabricante</th>
+        <th>Nome</th>
+        <th>Ano</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @car_models.each do |c|%>
+      <tr>  
+        <td><%= c.manufacturer.name %></td>
+        <td><%= c.name %></td>
+        <td><%= c.year %></td>
+        <td><%= link_to 'Ver Detalhes', c, id: "details-#{c.id}" %></td>
+      </tr>      
+      <%end%>
+    </tbody>
+  </table>
+  <%else%>
+  <p>Nenhum modelo de carro cadastrado</p>
+<%end%>
+</div>
+<div>
+<p><%= link_to "Cadastrar modelo de carro", new_car_model_path %></p>
+<p><%= link_to "Voltar", root_path %></p>
+</div>

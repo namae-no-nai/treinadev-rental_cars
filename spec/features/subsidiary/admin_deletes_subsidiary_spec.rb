@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Admin deletes subsidiary' do
   scenario 'successfully' do
-    Subsidiary.create!(name: 'Nova', cnpj: '12345678901234', address: 'rua sem nome')
+    Subsidiary.create!(name: 'Nova', cnpj: '14.380.277/0001-00', address: 'rua sem nome')
 
     visit root_path
     click_on 'Filiais'
@@ -14,8 +14,8 @@ feature 'Admin deletes subsidiary' do
   end
 
   scenario 'and keep anothers' do
-    Subsidiary.create!(name: 'Nova', cnpj: '12345678901234', address: 'rua sem nome')
-    Subsidiary.create!(name: 'Outra', cnpj: '12345678901235', address: 'rua sem outro nome')
+    Subsidiary.create!(name: 'Nova', cnpj: '14.380.277/0001-00', address: 'rua sem nome')
+    Subsidiary.create!(name: 'Outra', cnpj: '31.538.806/0001-61', address: 'rua sem outro nome')
 
     visit root_path
     click_on 'Filiais'
@@ -24,7 +24,7 @@ feature 'Admin deletes subsidiary' do
 
     expect(current_path).to eq subsidiaries_path
     expect(page).not_to have_content('Nova')
-    expect(page).not_to have_content('12345678901234')
+    expect(page).not_to have_content('14.380.277/0001-00')
     expect(page).not_to have_content('rua sem nome')
     expect(page).to have_content('Outra')
   end

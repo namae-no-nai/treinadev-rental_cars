@@ -13,8 +13,8 @@ describe Client, type: :model do
     end
 
     it 'must be uniq' do
-      Client.create!(name: 'Qualquernome', document: 12345678901, email: 'qualquer@algumacoisa.com')
-      client = Client.new(name: 'Qualquernome', document: 12345678901, email: 'qualquer@algumacoisa.com')
+      Client.create!(name: 'Qualquernome', document: '079.471.830-23', email: 'qualquer@algumacoisa.com')
+      client = Client.new(name: 'Qualquernome', document: '079.471.830-23', email: 'qualquer@algumacoisa.com')
 
       client.valid?
 
@@ -22,24 +22,24 @@ describe Client, type: :model do
       expect(client.errors[:email]).to include('Email já cadastrado')
     end
 
-    it 'document must be 11 digits long' do
-      client = Client.new(name: 'Qualquernome', document: 123456789012, email: 'qualquer@algumacoisa.com')
+    it 'document must formated' do
+      client = Client.new(name: 'Qualquernome', document: '07947183023', email: 'qualquer@algumacoisa.com')
 
       client.valid?
 
-      expect(client.errors[:document]).to include('CPF deve conter 11 dígitos')
+      expect(client.errors[:document]).to include('CPF incorreto')
     end
 
     it 'document must have only digits' do
-      client = Client.new(name: 'Qualquernome', document: '123456789/0', email: 'qualquer@algumacoisa.com')
+      client = Client.new(name: 'Qualquernome', document: '079.471.830-27', email: 'qualquer@algumacoisa.com')
 
       client.valid?
 
-      expect(client.errors[:document]).to include('CPF deve conter apenas números')
+      expect(client.errors[:document]).to include('CPF não é válido')
     end
     
     it 'must have this format' do
-    client = Client.new(name: 'Qualquernome', document: '123456789012', email: 'qualqueralgumacoisa.com')
+    client = Client.new(name: 'Qualquernome', document: '079.471.830-23', email: 'qualqueralgumacoisa.com')
 
     client.valid?
 

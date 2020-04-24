@@ -2,24 +2,24 @@ require 'rails_helper'
 
 feature 'User edits client' do
   scenario 'successfully' do
-    Client.create!(name: 'Algum nome', document: '12345678901', email: 'algumacois@outracoisa.com')
+    Client.create!(name: 'Algum nome', document: '588.647.870-11', email: 'algumacois@outracoisa.com')
 
     visit root_path
     click_on 'Clientes'
     click_on 'Algum nome'
     click_on 'Editar'
     fill_in 'Nome', with: 'Outro nome'
-    fill_in 'CPF', with: '33333333999'
+    fill_in 'CPF', with: '079.471.830-23'
     fill_in 'Email', with: 'outracois@outracoisa.com'
     click_on 'Enviar'
 
     expect(page).to have_content('Outro nome')
-    expect(page).to have_content('33333333999')
+    expect(page).to have_content('079.471.830-23')
     expect(page).to have_content('outracois@outracoisa.com')
   end
 
   scenario 'cant be blank' do
-    Client.create!(name: 'Algum nome', document: '12345678901', email: 'algumacois@outracoisa.com')
+    Client.create!(name: 'Algum nome', document: '588.647.870-11', email: 'algumacois@outracoisa.com')
 
     visit root_path
     click_on 'Clientes'
@@ -36,15 +36,15 @@ feature 'User edits client' do
   end
 
   scenario 'must be unique' do
-    Client.create!(name: 'Algum nome', document: '12345678901', email: 'algumacois@outracoisa.com')
-    Client.create!(name: 'Outro nome', document: '33333333999', email: 'outracois@outracoisa.com')
+    Client.create!(name: 'Algum nome', document: '588.647.870-11', email: 'algumacois@outracoisa.com')
+    Client.create!(name: 'Outro nome', document: '079.471.830-23', email: 'outracois@outracoisa.com')
 
     visit root_path
     click_on 'Clientes'
     click_on 'Algum nome'
     click_on 'Editar'
     fill_in 'Nome', with: 'Outro nome'
-    fill_in 'CPF', with: '33333333999'
+    fill_in 'CPF', with: '079.471.830-23'
     fill_in 'Email', with: 'outracois@outracoisa.com'
     click_on 'Enviar'
 
@@ -52,8 +52,8 @@ feature 'User edits client' do
     expect(page).to have_content('Email já cadastrado')
   end
 
-  scenario 'and must have 11' do
-    Client.create!(name: 'Algum nome', document: '12345678901', email: 'algumacois@outracoisa.com')
+  scenario 'format' do
+    Client.create!(name: 'Algum nome', document: '588.647.870-11', email: 'algumacois@outracoisa.com')
     
     visit root_path
     click_on 'Clientes'
@@ -61,15 +61,15 @@ feature 'User edits client' do
     click_on 'Editar'
 
     fill_in 'Nome', with: 'Nome'
-    fill_in 'CPF', with: '0123456789012345'
+    fill_in 'CPF', with: '58864787011'
     fill_in 'Email', with: 'nome@eu.com'
     click_on 'Enviar'
 
-    expect(page).to have_content('CPF deve conter 11 dígitos')
+    expect(page).to have_content('CPF incorreto')
   end
 
-  scenario 'only numbers' do
-    Client.create!(name: 'Algum nome', document: '12345678901', email: 'algumacois@outracoisa.com')
+  scenario 'exist' do
+    Client.create!(name: 'Algum nome', document: '588.647.870-11', email: 'algumacois@outracoisa.com')
     
     visit root_path
     click_on 'Clientes'
@@ -77,15 +77,15 @@ feature 'User edits client' do
     click_on 'Editar'
 
     fill_in 'Nome', with: 'Nova'
-    fill_in 'CPF', with: '0123456789/2'
+    fill_in 'CPF', with: '588.647.870-19'
     fill_in 'Email', with: 'nome@eu.com'
     click_on 'Enviar'
 
-    expect(page).to have_content('CPF deve conter apenas números')
+    expect(page).to have_content('CPF não é válido')
   end
   
   scenario 'email format' do
-    Client.create!(name: 'Algum nome', document: '12345678901', email: 'algumacois@outracoisa.com')
+    Client.create!(name: 'Algum nome', document: '588.647.870-11', email: 'algumacois@outracoisa.com')
   
       visit root_path
     click_on 'Clientes'
@@ -93,7 +93,7 @@ feature 'User edits client' do
     click_on 'Editar'
 
     fill_in 'Nome', with: 'Nova'
-    fill_in 'CPF', with: '12345678901'
+    fill_in 'CPF', with: '588.647.870-11'
     fill_in 'Email', with: 'nomeeu.com'
     click_on 'Enviar'
 

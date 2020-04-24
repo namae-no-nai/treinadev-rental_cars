@@ -3,7 +3,14 @@ class Subsidiary < ApplicationRecord
                    uniqueness: {message: 'Nome já cadastrado'}
   validates :address, presence: {message: 'Endereço não pode ficar em branco'}
   validates :cnpj, presence: {message: "CNPJ não pode ficar em branco"},
-                   uniqueness: {message: 'CNPJ já cadastrado'}, 
-                   length: {is: 14, message: 'CNPJ deve conter 14 dígitos'}, 
-                   numericality: {only_integer: true, message: "CNPJ deve conter apenas números"}
+                   uniqueness: {message: 'CNPJ já cadastrado'},
+                   format: { with: /\A^\d{2,3}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$\z/, message: 'CNPJ incorreto' }
+  validate :cnpj_must_be_valid
+
+private
+  
+  def cnpj_must_be_valid
+    return if CNPJ.valid?(self.cnpj)
+    errors.add(:cnpj, 'CNPJ não é válido')
+  end
 end
