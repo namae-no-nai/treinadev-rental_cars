@@ -21,9 +21,9 @@ feature 'Admin register car category' do
 
     expect(current_path).to eq car_category_path(CarCategory.last.id)
     expect(page).to have_content('utilitário')
-    expect(page).to have_content('30.0')
-    expect(page).to have_content('50.0')
-    expect(page).to have_content('75.52')
+    expect(page).to have_content('30,00')
+    expect(page).to have_content('50,00')
+    expect(page).to have_content('75,52')
     expect(page).to have_link('Voltar')
   end
 end

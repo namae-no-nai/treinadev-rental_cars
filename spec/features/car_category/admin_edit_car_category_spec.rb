@@ -15,9 +15,9 @@ feature 'Admin edits car category' do
     click_on 'Enviar'
 
     expect(page).to have_content('compacto')
-    expect(page).to have_content('19.11')
-    expect(page).to have_content('13.24')
-    expect(page).to have_content('13.33')
+    expect(page).to have_content('19,11')
+    expect(page).to have_content('13,24')
+    expect(page).to have_content('13,33')
   end
 
   scenario 'can not be blank' do

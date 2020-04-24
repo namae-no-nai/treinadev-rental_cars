@@ -21,9 +21,9 @@ feature 'Admin view subsidiaries' do
     click_on 'utilitário'
 
     expect(page).to have_content('utilitário')
-    expect(page).to have_content('12.1')
-    expect(page).to have_content('32.99')
-    expect(page).to have_content('54.33')
+    expect(page).to have_content('12,10')
+    expect(page).to have_content('32,99')
+    expect(page).to have_content('54,33')
     expect(page).not_to have_content('SUV')
   end
 
