@@ -1,11 +1,19 @@
-<div>
+<header>
+<h1><%= "Categoria: #{@car_category.name}" %></h1>
+</header>
 <dl>
-<dt><h1><%= "Catergoria: #{@car_category.name}" %></h1></dt>
-  <dd><p><%= "Diária: R#{number_to_currency(@car_category.daily_rate)}" %></p></dd>
-  <dd><p><%= "Seguro do Carro: R#{number_to_currency(@car_category.car_insurance)}"%></p></dd>
-  <dd><p><%= "Seguro contra terceiros: R#{number_to_currency(@car_category.third_party_insurance)}"%></p></dd>
+  <dt>Diária:</dt>
+  <dd><%= number_to_currency(@car_category.daily_rate) %></dd>
+  <dt>Seguro do Carro:</dt>
+  <dd><%= number_to_currency(@car_category.car_insurance)%></dd>
+  <dt>Seguro contra terceiros: </dt>
+  <dd><%= number_to_currency(@car_category.third_party_insurance)%></dd>
 </dl>
-</div>
+
+  <h3>Modelos de carro</h3>
+  <% @car_models.each do |car_model| %>
+   <%= link_to car_model.name, car_model%></br>
+   <%end%>
 <div>
 <p><%= link_to "Apagar categoria", @car_category, method: :delete %></p>
 <p><%= link_to "Editar", edit_car_category_path %></p>
