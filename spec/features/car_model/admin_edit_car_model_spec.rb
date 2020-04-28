@@ -17,7 +17,7 @@ feature 'Admin edits car_model' do
     fill_in 'Nome', with: 'Corolla'
     fill_in 'Ano', with: '2021'
     select 'Toyota', from: 'Fabricante'
-    fill_in 'Cavalos', with: '2.0'
+    fill_in 'Motor', with: '2.0'
     select 'B', from: 'Categoria'
     fill_in 'Tipo de combustível', with: 'gasolina'
 
@@ -47,7 +47,7 @@ feature 'Admin edits car_model' do
     fill_in 'Nome', with: ''
     fill_in 'Ano', with: ''
     select 'Toyota', from: 'Fabricante'
-    fill_in 'Cavalos', with: ''
+    fill_in 'Motor', with: ''
     select 'B', from: 'Categoria'
     fill_in 'Tipo de combustível', with: ''
 
@@ -55,59 +55,7 @@ feature 'Admin edits car_model' do
 
     expect(page).to have_content("Nome não pode ficar em branco")
     expect(page).to have_content("Ano não pode ficar em branco")
-    expect(page).to have_content("Cavalos não pode ficar em branco")
+    expect(page).to have_content("Motor não pode ficar em branco")
     expect(page).to have_content("Tipo de combustível não pode ficar em branco")
-  end
-
-  scenario 'must be unique' do
-    fiat = Manufacturer.create!(name: 'Fiat')
-    toyota = Manufacturer.create!(name: 'Toyota')
-    cat_a = CarCategory.create!(name: 'A', daily_rate: "40.00", 
-                                car_insurance: "30.00", third_party_insurance: "30.00")
-    cat_b = CarCategory.create!(name: 'B', daily_rate: "40.00", 
-                                car_insurance: "30.00", third_party_insurance: "30.00")
-    c = CarModel.create!(name:'Uno', year: 2020, manufacturer: fiat, motorization: "1.0", car_category: cat_a, fuel_type: "flex")
-    
-    visit root_path
-    click_on 'Modelos de carros'
-    click_on "details-#{c.id}"
-    click_on 'Editar'
-    
-    fill_in 'Nome', with: 'Corolla'
-    fill_in 'Ano', with: '21'
-    select 'Toyota', from: 'Fabricante'
-    fill_in 'Cavalos', with: '2.0'
-    select 'B', from: 'Categoria'
-    fill_in 'Tipo de combustível', with: 'gasolina'
-
-    click_on 'Enviar'
-
-    expect(page).to have_content('Ano deve ser no formato NNNN')
-  end
-
-  scenario 'format' do
-    fiat = Manufacturer.create!(name: 'Fiat')
-    toyota = Manufacturer.create!(name: 'Toyota')
-    cat_a = CarCategory.create!(name: 'A', daily_rate: "40.00", 
-                                car_insurance: "30.00", third_party_insurance: "30.00")
-    cat_b = CarCategory.create!(name: 'B', daily_rate: "40.00", 
-                                car_insurance: "30.00", third_party_insurance: "30.00")
-    c = CarModel.create!(name:'Uno', year: 2020, manufacturer: fiat, motorization: "1.0", car_category: cat_a, fuel_type: "flex")
-    
-    visit root_path
-    click_on 'Modelos de carros'
-    click_on "details-#{c.id}"
-    click_on 'Editar'
-
-    fill_in 'Nome', with: 'Corolla'
-    fill_in 'Ano', with: '2O2I'
-    select 'Toyota', from: 'Fabricante'
-    fill_in 'Cavalos', with: '2.0'
-    select 'B', from: 'Categoria'
-    fill_in 'Tipo de combustível', with: 'gasolina'
-
-    click_on 'Enviar'
-
-    expect(page).to have_content('Ano deve conter apenas números')
-  end  
+  end 
 end

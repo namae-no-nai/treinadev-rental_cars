@@ -48,8 +48,8 @@ feature 'User edits client' do
     fill_in 'Email', with: 'outracois@outracoisa.com'
     click_on 'Enviar'
 
-    expect(page).to have_content('CPF já cadastrado')
-    expect(page).to have_content('Email já cadastrado')
+    expect(page).to have_content('CPF já está em uso')
+    expect(page).to have_content('Email já está em uso')
   end
 
   scenario 'format' do

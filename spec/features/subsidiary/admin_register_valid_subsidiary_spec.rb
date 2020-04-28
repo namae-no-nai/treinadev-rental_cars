@@ -12,8 +12,8 @@ feature 'Admin register valid subsidiary' do
     fill_in 'Endereço', with: 'rua sem nome'
     click_on 'Enviar'
 
-    expect(page).to have_content('Nome já cadastrado')
-    expect(page).to have_content('CNPJ já cadastrado')
+    expect(page).to have_content('Nome já está em uso')
+    expect(page).to have_content('CNPJ já está em uso')
   end
 
   scenario 'and can not be blank' do

@@ -5,13 +5,13 @@ feature 'Admin register manufacturer' do
     visit root_path
     click_on 'Fabricantes'
 
-    expect(page).to have_link('Registrar novo fabricante', href: new_manufacturer_path)
+    expect(page).to have_link('Registrar fabricante', href: new_manufacturer_path)
   end
 
   scenario 'successfully' do
     visit root_path
     click_on 'Fabricantes'
-    click_on 'Registrar novo fabricante'
+    click_on 'Registrar fabricante'
 
     fill_in 'Nome', with: 'Fiat'
     click_on 'Enviar'

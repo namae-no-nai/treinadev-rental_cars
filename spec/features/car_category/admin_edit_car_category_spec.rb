@@ -53,7 +53,7 @@ feature 'Admin edits car category' do
     fill_in 'Seguro contra terceiros', with: '14.33'
     click_on 'Enviar'
 
-    expect(page).to have_content('Categoria já cadastrada')
+    expect(page).to have_content('Categoria já está em uso')
   end
 
   scenario 'greater than 0' do
@@ -70,9 +70,9 @@ feature 'Admin edits car category' do
     fill_in 'Seguro contra terceiros', with: '0'
     click_on 'Enviar'
 
-    expect(page).to have_content("O valor da diária deve ser maior que 0.00")
-    expect(page).to have_content("O valor do seguro do carro deve ser maior que 0.00")
-    expect(page).to have_content("O valor do seguro contra teceiros deve ser maior que 0.00")
+    expect(page).to have_content("Diária deve ser maior que 0.0")
+    expect(page).to have_content("Seguro do carro deve ser maior que 0.0")
+    expect(page).to have_content("Seguro contra terceiros deve ser maior que 0.0")
   end
 end
 

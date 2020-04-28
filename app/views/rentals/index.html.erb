@@ -1,0 +1,37 @@
+<h1>Fabricantes</h1>
+<div>
+<% if @rentals.any? %>
+   <table>
+    <thead>
+      <tr>
+        <th>Data de início</th>
+        <th></th>
+        <th>Data de término</th>
+        <th></th>
+        <th>Cliente</th>
+        <th></th>
+        <th>Categoria</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @rentals.each do |rental|%>
+      <tr>  
+        <td><%= localize(rental.start_date) %></td>
+        <td></td>
+        <td><%= localize(rental.end_date) %></td>
+        <td></td>
+        <td><%= rental.client.name %></td>
+        <td></td>
+        <td><%= rental.car_category.name %></td>
+      </tr>      
+      <%end%>
+    </tbody>
+  </table>
+  <%else%>
+  <p>Nenhuma locação cadastrada</p>
+<%end%>
+</div>
+<div>
+<p><%= link_to "Registrar locação", new_rental_path %></p>
+<p><%= link_to "Voltar", root_path %></p>
+</div>

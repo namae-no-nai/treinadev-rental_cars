@@ -58,7 +58,7 @@ feature 'User edits subsidiary' do
 
     click_on 'Enviar'
 
-    expect(page).to have_content('Nome já cadastrado')
+    expect(page).to have_content('Nome já está em uso')
   end
 
   scenario 'unique CNPJ' do
@@ -77,7 +77,7 @@ feature 'User edits subsidiary' do
 
     click_on 'Enviar'
 
-    expect(page).to have_content('CNPJ já cadastrado')
+    expect(page).to have_content('CNPJ já está em uso')
   end
 
   scenario 'format' do

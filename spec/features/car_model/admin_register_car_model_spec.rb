@@ -19,7 +19,7 @@ feature 'User register client' do
     fill_in 'Nome', with: 'Corolla'
     fill_in 'Ano', with: '2021'
     select 'Toyota', from: 'Fabricante'
-    fill_in 'Cavalos', with: '2.0'
+    fill_in 'Motor', with: '2.0'
     select 'B', from: 'Categoria'
     fill_in 'Tipo de combustível', with: 'gasolina'
     click_on 'Enviar'
@@ -44,7 +44,7 @@ feature 'User register client' do
     fill_in 'Nome', with: ''
     fill_in 'Ano', with: ''
     select 'Toyota', from: 'Fabricante'
-    fill_in 'Cavalos', with: ''
+    fill_in 'Motor', with: ''
     select 'B', from: 'Categoria'
     fill_in 'Tipo de combustível', with: ''
 
@@ -52,51 +52,8 @@ feature 'User register client' do
 
     expect(page).to have_content("Nome não pode ficar em branco")
     expect(page).to have_content("Ano não pode ficar em branco")
-    expect(page).to have_content("Cavalos não pode ficar em branco")
+    expect(page).to have_content("Motor não pode ficar em branco")
     expect(page).to have_content("Tipo de combustível não pode ficar em branco")
-  end
-
-  scenario 'year format' do
-    toyota = Manufacturer.create!(name: 'Toyota')
-    cat_b = CarCategory.create!(name: 'B', daily_rate: "40.00", 
-                                car_insurance: "30.00", third_party_insurance: "30.00")
-    
-    visit root_path
-    click_on 'Modelos de carros'
-    click_on 'Cadastrar modelo de carro'
-
-    fill_in 'Nome', with: 'Corolla'
-    fill_in 'Ano', with: '21'
-    select 'Toyota', from: 'Fabricante'
-    fill_in 'Cavalos', with: '2.0'
-    select 'B', from: 'Categoria'
-    fill_in 'Tipo de combustível', with: 'gasolina'
-
-    click_on 'Enviar'
-
-    expect(page).to have_content('Ano deve ser no formato NNNN')
-  end
-  
-  scenario 'only digits' do
-    toyota = Manufacturer.create!(name: 'Toyota')
-    cat_b = CarCategory.create!(name: 'B', daily_rate: "40.00", 
-                                car_insurance: "30.00", third_party_insurance: "30.00")
-    
-    visit root_path
-    visit root_path
-    click_on 'Modelos de carros'
-    click_on 'Cadastrar modelo de carro'
-
-    fill_in 'Nome', with: 'Corolla'
-    fill_in 'Ano', with: '2O2I'
-    select 'Toyota', from: 'Fabricante'
-    fill_in 'Cavalos', with: '2.0'
-    select 'B', from: 'Categoria'
-    fill_in 'Tipo de combustível', with: 'gasolina'
-
-    click_on 'Enviar'
-
-    expect(page).to have_content('Ano deve conter apenas números')
   end
 end
 

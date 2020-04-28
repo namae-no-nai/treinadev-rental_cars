@@ -6,10 +6,10 @@
   <%= c.label :name, "Nome"%>
   <%= c.text_field :name %></br></br>
   <%= c.label :year, "Ano"%>
-  <%= c.text_field :year %></br></br>
+  <%= c.number_field :year %></br></br>
   <%= c.label :manufacturer_id, 'Fabricante' %>
   <%= c.collection_select :manufacturer_id, @manufacturers, :id, :name %>
-  <%= c.label :motorization, "Cavalos"%>
+  <%= c.label :motorization, "Motor"%>
   <%= c.text_field :motorization %></br></br>
   <%= c.label :car_category_id, 'Categoria' %>
   <%= c.collection_select :car_category_id, @car_categories, :id, :name %>

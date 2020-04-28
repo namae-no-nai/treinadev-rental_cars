@@ -13,7 +13,7 @@ feature 'Admin register valid car category' do
     fill_in 'Seguro contra terceiros', with: '30.00'
     click_on 'Enviar'
 
-    expect(page).to have_content('Categoria já cadastrada')
+    expect(page).to have_content('Categoria já está em uso')
   end
 
   scenario 'and name can not be blank' do
@@ -28,7 +28,7 @@ feature 'Admin register valid car category' do
     click_on 'Enviar'
 
     expect(page).to have_content('Categoria não pode ficar em branco')
-    expect(page).to have_content('Seguro do carro não pode ficar em branco')
+    expect(page).to have_content('Diária não pode ficar em branco')
     expect(page).to have_content('Seguro do carro não pode ficar em branco')
     expect(page).to have_content('Seguro contra terceiros não pode ficar em branco')
   end

@@ -7,9 +7,9 @@ describe Client, type: :model do
 
       client.valid?
 
-      expect(client.errors[:name]).to include('Nome não pode ficar em branco')
-      expect(client.errors[:document]).to include('CPF não pode ficar em branco')
-      expect(client.errors[:email]).to include('Email não pode ficar em branco')
+      expect(client.errors[:name]).to include('não pode ficar em branco')
+      expect(client.errors[:document]).to include('não pode ficar em branco')
+      expect(client.errors[:email]).to include('não pode ficar em branco')
     end
 
     it 'must be uniq' do
@@ -18,8 +18,8 @@ describe Client, type: :model do
 
       client.valid?
 
-      expect(client.errors[:document]).to include('CPF já cadastrado')
-      expect(client.errors[:email]).to include('Email já cadastrado')
+      expect(client.errors[:document]).to include('já está em uso')
+      expect(client.errors[:email]).to include('já está em uso')
     end
 
     it 'document must formated' do

@@ -7,9 +7,9 @@ describe Subsidiary, type: :model do
 
       subsidiary.valid?
 
-      expect(subsidiary.errors[:name]).to include('Nome não pode ficar em branco')
-      expect(subsidiary.errors[:address]).to include ('Endereço não pode ficar em branco')
-      expect(subsidiary.errors[:cnpj]).to include ("CNPJ não pode ficar em branco")
+      expect(subsidiary.errors[:name]).to include('não pode ficar em branco')
+      expect(subsidiary.errors[:address]).to include ('não pode ficar em branco')
+      expect(subsidiary.errors[:cnpj]).to include ("não pode ficar em branco")
     end
 
     it 'must be uniq' do
@@ -18,8 +18,8 @@ describe Subsidiary, type: :model do
 
       subsidiary.valid?
 
-      expect(subsidiary.errors[:name]).to include('Nome já cadastrado')
-      expect(subsidiary.errors[:cnpj]).to include ('CNPJ já cadastrado')
+      expect(subsidiary.errors[:name]).to include('já está em uso')
+      expect(subsidiary.errors[:cnpj]).to include ('já está em uso')
     end
 
     it 'must exist' do

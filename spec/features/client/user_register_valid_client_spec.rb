@@ -13,8 +13,8 @@ feature 'User register valid client' do
     fill_in 'Email', with: 'eu@algumacoisa.com'
     click_on 'Enviar'
 
-    expect(page).to have_content('CPF já cadastrado')
-    expect(page).to have_content('Email já cadastrado')
+    expect(page).to have_content('CPF já está em uso')
+    expect(page).to have_content('Email já está em uso')
   end
 
   scenario 'and can not be blank' do
