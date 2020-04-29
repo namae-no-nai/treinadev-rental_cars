@@ -5,7 +5,7 @@ pt-BR:
       client: Cliente
     attributes:
       client:
-        name: "Nome"
-        document: "CPF"
-        email: "Email"
+        name: Nome
+        document: CPF
+        email: Email
         

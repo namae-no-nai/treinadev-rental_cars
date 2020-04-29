@@ -5,7 +5,7 @@ pt-BR:
       car_category: Categoria 
     attributes:
       car_category:
-        name: "Categoria"
-        daily_rate: "Diária"
-        car_insurance: "Seguro do carro"
-        third_party_insurance: "Seguro contra terceiros"
+        name: Categoria
+        daily_rate: Diária
+        car_insurance: Seguro do carro
+        third_party_insurance: Seguro contra terceiros

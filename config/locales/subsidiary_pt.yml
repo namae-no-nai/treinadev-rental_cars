@@ -5,6 +5,6 @@ pt-BR:
       subsidiary: Filial
     attributes:
       subsidiary:
-        name: "Nome"
-        cnpj: "CNPJ"
-        address: "Endereço"
+        name: Nome
+        cnpj: CNPJ
+        address: Endereço
