@@ -5,5 +5,5 @@ pt-BR:
       rental: Locação
     attributes:
       rental:
-        start_date: Data de início
+        start_date: Data inicial
         end_date: Data de término

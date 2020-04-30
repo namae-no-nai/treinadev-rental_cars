@@ -3,6 +3,10 @@ require 'rails_helper'
 feature 'Admin register valid subsidiary' do
   scenario 'and name must be unique' do
     Subsidiary.create(name: 'Nova', cnpj: '31.538.806/0001-61', address: "rua sem nome" )
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
+
     visit root_path
     click_on 'Filiais'
     click_on 'Registrar nova filial'
@@ -17,6 +21,10 @@ feature 'Admin register valid subsidiary' do
   end
 
   scenario 'and can not be blank' do
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
+
     visit root_path
     click_on 'Filiais'
     click_on 'Registrar nova filial'
@@ -31,6 +39,10 @@ feature 'Admin register valid subsidiary' do
     expect(page).to have_content('Endereço não pode ficar em branco')
   end
   scenario 'format' do
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
+
     visit root_path
     click_on 'Filiais'
     click_on 'Registrar nova filial'
@@ -43,6 +55,10 @@ feature 'Admin register valid subsidiary' do
     expect(page).to have_content('CNPJ incorreto')
   end
   scenario 'exist' do
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
+
     visit root_path
     click_on 'Filiais'
     click_on 'Registrar nova filial'
@@ -54,6 +70,4 @@ feature 'Admin register valid subsidiary' do
 
     expect(page).to have_content('CNPJ não é válido')
   end
-
 end
-

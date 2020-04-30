@@ -3,7 +3,10 @@ require 'rails_helper'
 feature 'User register valid client' do
   scenario 'and must be unique' do
     Client.create(name: 'Nome', document: '892.317.680-00', email: 'eu@algumacoisa.com')
-   
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
+
     visit root_path
     click_on 'Clientes'
     click_on 'Cadastrar cliente'
@@ -18,6 +21,10 @@ feature 'User register valid client' do
   end
 
   scenario 'and can not be blank' do
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
+
     visit root_path
     click_on 'Clientes'
     click_on 'Cadastrar cliente'
@@ -33,6 +40,10 @@ feature 'User register valid client' do
   end
 
   scenario 'incorret' do
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
+
     visit root_path
     click_on 'Clientes'
     click_on 'Cadastrar cliente'
@@ -46,6 +57,10 @@ feature 'User register valid client' do
   end
  
   scenario 'exist' do
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
+
     visit root_path
     click_on 'Clientes'
     click_on 'Cadastrar cliente'
@@ -59,6 +74,10 @@ feature 'User register valid client' do
   end
 
   scenario 'email format' do
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
+
     visit root_path
     click_on 'Clientes'
     click_on 'Cadastrar cliente'

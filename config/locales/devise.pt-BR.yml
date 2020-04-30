@@ -16,7 +16,11 @@ pt-BR:
       timeout: "Sua sessão expirou, por favor, efetue login novamente para continuar."
       unauthenticated: "Para continuar, efetue login ou registre-se."
       unconfirmed: "Antes de continuar, confirme a sua conta."
-    mailer:
+    mailer:   
+      email_changed:
+        subject: "Email alterado"
+      password_change:
+        subject: "Senha alterada"
       confirmation_instructions:
         subject: "Instruções de confirmação"
       reset_password_instructions:

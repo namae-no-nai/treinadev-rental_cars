@@ -3,7 +3,9 @@ require 'rails_helper'
 feature 'Admin deletes car_catergory' do
   scenario 'successfully' do
     CarCategory.create!(name: 'SUV', daily_rate: '19.99', car_insurance: '10.00', third_party_insurance: "12.99")
-
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
     visit root_path
     click_on 'Categorias de carros'
     click_on 'SUV'
@@ -16,6 +18,9 @@ feature 'Admin deletes car_catergory' do
   scenario 'and keep anothers' do
     CarCategory.create!(name: 'SUV', daily_rate: '19.99', car_insurance: '10.00', third_party_insurance: "12.99")
     CarCategory.create!(name: 'compacto', daily_rate: '20.12', car_insurance: '15.00', third_party_insurance: "19.00")
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
 
     visit root_path
     click_on 'Categorias de carros'

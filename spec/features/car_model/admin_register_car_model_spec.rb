@@ -2,6 +2,10 @@ require 'rails_helper'
 
 feature 'User register client' do
   scenario 'from index page' do
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
+
     visit root_path
     click_on 'Modelos de carros'
 
@@ -12,6 +16,10 @@ feature 'User register client' do
     toyota = Manufacturer.create!(name: 'Toyota')
     cat_b = CarCategory.create!(name: 'B', daily_rate: "40.00", 
                                 car_insurance: "30.00", third_party_insurance: "30.00")
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+
+    login_as user, scope: :user
+                            
     visit root_path
     click_on 'Modelos de carros'
     click_on 'Cadastrar modelo de carro'
@@ -37,6 +45,10 @@ feature 'User register client' do
     toyota = Manufacturer.create!(name: 'Toyota')
     cat_b = CarCategory.create!(name: 'B', daily_rate: "40.00", 
                                 car_insurance: "30.00", third_party_insurance: "30.00")
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+
+    login_as user, scope: :user
+                                                        
     visit root_path
     click_on 'Modelos de carros'
     click_on 'Cadastrar modelo de carro'

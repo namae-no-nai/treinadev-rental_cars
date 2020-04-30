@@ -3,6 +3,9 @@ require 'rails_helper'
 feature 'User edits client' do
   scenario 'successfully' do
     Client.create!(name: 'Algum nome', document: '588.647.870-11', email: 'algumacois@outracoisa.com')
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
 
     visit root_path
     click_on 'Clientes'
@@ -20,6 +23,9 @@ feature 'User edits client' do
 
   scenario 'cant be blank' do
     Client.create!(name: 'Algum nome', document: '588.647.870-11', email: 'algumacois@outracoisa.com')
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
 
     visit root_path
     click_on 'Clientes'
@@ -38,6 +44,9 @@ feature 'User edits client' do
   scenario 'must be unique' do
     Client.create!(name: 'Algum nome', document: '588.647.870-11', email: 'algumacois@outracoisa.com')
     Client.create!(name: 'Outro nome', document: '079.471.830-23', email: 'outracois@outracoisa.com')
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
 
     visit root_path
     click_on 'Clientes'
@@ -54,7 +63,10 @@ feature 'User edits client' do
 
   scenario 'format' do
     Client.create!(name: 'Algum nome', document: '588.647.870-11', email: 'algumacois@outracoisa.com')
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
     
+    login_as user, scope: :user
+
     visit root_path
     click_on 'Clientes'
     click_on 'Algum nome'
@@ -70,7 +82,10 @@ feature 'User edits client' do
 
   scenario 'exist' do
     Client.create!(name: 'Algum nome', document: '588.647.870-11', email: 'algumacois@outracoisa.com')
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
     
+    login_as user, scope: :user
+
     visit root_path
     click_on 'Clientes'
     click_on 'Algum nome'
@@ -86,8 +101,11 @@ feature 'User edits client' do
   
   scenario 'email format' do
     Client.create!(name: 'Algum nome', document: '588.647.870-11', email: 'algumacois@outracoisa.com')
-  
-      visit root_path
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
+
+    visit root_path
     click_on 'Clientes'
     click_on 'Algum nome'
     click_on 'Editar'

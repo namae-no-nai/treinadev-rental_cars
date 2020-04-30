@@ -2,6 +2,10 @@ require 'rails_helper'
 
 feature 'Admin register car category' do
   scenario 'from index page' do
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
+
     visit root_path
     click_on 'Categorias de carros'
 
@@ -9,6 +13,10 @@ feature 'Admin register car category' do
   end
 
   scenario 'successfully' do
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
+
     visit root_path
     click_on 'Categorias de carros'
     click_on 'Cadastrar nova categoria'

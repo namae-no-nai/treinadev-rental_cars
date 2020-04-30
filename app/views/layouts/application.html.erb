@@ -20,7 +20,6 @@
         <%= link_to 'Sair', destroy_user_session_path, method: :delete %>
       <% else %>
         <%= link_to 'Entrar', new_user_session_path %>
-        <%= link_to 'Criar conta', new_user_registration_path %>
       <% end %>
     <%= flash[:alert] %>
     <%= flash[:notice] %>

@@ -3,6 +3,9 @@ require 'rails_helper'
 feature 'Admin edits car category' do
   scenario 'successfully' do
     CarCategory.create(name: 'SUV', daily_rate: '19.99', car_insurance: '22.39', third_party_insurance: '12.39')
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
 
     visit root_path
     click_on 'Categorias de carros'
@@ -22,6 +25,9 @@ feature 'Admin edits car category' do
 
   scenario 'can not be blank' do
     CarCategory.create(name: 'SUV', daily_rate: '19.99', car_insurance: '22.30', third_party_insurance: '12.30')
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
 
     visit root_path
     click_on 'Categorias de carros'
@@ -42,6 +48,9 @@ feature 'Admin edits car category' do
   scenario 'unique' do
     CarCategory.create!(name: 'SUV', daily_rate: '19.99', car_insurance: '22.30', third_party_insurance: '12.30')
     CarCategory.create!(name: 'compacto', daily_rate: '19.99', car_insurance: '22.30', third_party_insurance: '12.30')
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
 
     visit root_path
     click_on 'Categorias de carros'
@@ -57,8 +66,10 @@ feature 'Admin edits car category' do
   end
 
   scenario 'greater than 0' do
-
-  CarCategory.create!(name: 'A', daily_rate: '19.99', car_insurance: '22.30', third_party_insurance: '12.30')
+    CarCategory.create!(name: 'A', daily_rate: '19.99', car_insurance: '22.30', third_party_insurance: '12.30')
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
 
     visit root_path
     click_on 'Categorias de carros'

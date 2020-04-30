@@ -3,6 +3,10 @@ require 'rails_helper'
 feature 'Admin register valid car category' do
   scenario 'and name must be unique' do
     CarCategory.create!(name: 'SUV', daily_rate: '19.99', car_insurance: '22.30', third_party_insurance: '12.30')
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
+
     visit root_path
     click_on 'Categorias de carros'
     click_on 'Cadastrar nova categoria'
@@ -17,6 +21,10 @@ feature 'Admin register valid car category' do
   end
 
   scenario 'and name can not be blank' do
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
+
     visit root_path
     click_on 'Categorias de carros'
     click_on 'Cadastrar nova categoria'

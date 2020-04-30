@@ -4,6 +4,9 @@ feature 'Admin view subsidiaries' do
   scenario 'successfully' do
     Subsidiary.create!(name: 'Nova', cnpj: '91.298.062/0001-87', address: 'rua sem nome, 00')
     Subsidiary.create!(name: 'Outra', cnpj: '31.538.806/0001-61', address: 'rua sem outro nome, 00')
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
 
     visit root_path
     click_on 'Filiais'
@@ -15,6 +18,9 @@ feature 'Admin view subsidiaries' do
   scenario 'and view details' do
     Subsidiary.create!(name: 'Nova', cnpj: '91.298.062/0001-87', address: 'rua sem nome, 00')
     Subsidiary.create!(name: 'Outra', cnpj: '31.538.806/0001-61', address: 'rua sem outro nome, 00')
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
 
     visit root_path
     click_on 'Filiais'
@@ -27,6 +33,10 @@ feature 'Admin view subsidiaries' do
   end
 
   scenario 'and no subsidiaries are created' do
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
+
     visit root_path
     click_on 'Filiais'
 
@@ -36,6 +46,9 @@ feature 'Admin view subsidiaries' do
   scenario 'and return to home page' do
     Subsidiary.create!(name: 'Nova', cnpj: '91.298.062/0001-87', address: 'rua sem nome, 00')
     Subsidiary.create!(name: 'Outra', cnpj: '31.538.806/0001-61', address: 'rua sem outro nome, 00')
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
 
     visit root_path
     click_on 'Filiais'
@@ -47,6 +60,9 @@ feature 'Admin view subsidiaries' do
   scenario 'and return to subsidiaries page' do
     Subsidiary.create!(name: 'Nova', cnpj: '91.298.062/0001-87', address: 'rua sem nome, 00')
     Subsidiary.create!(name: 'Outra', cnpj: '31.538.806/0001-61', address: 'rua sem outro nome, 00')
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
 
     visit root_path
     click_on 'Filiais'

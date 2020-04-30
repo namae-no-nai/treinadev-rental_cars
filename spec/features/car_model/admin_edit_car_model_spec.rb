@@ -9,7 +9,10 @@ feature 'Admin edits car_model' do
     cat_b = CarCategory.create!(name: 'B', daily_rate: "40.00", 
                                 car_insurance: "30.00", third_party_insurance: "30.00")
     c = CarModel.create!(name:'Uno', year: 2020, manufacturer: fiat, motorization: "1.0", car_category: cat_a, fuel_type: "flex")
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
     
+    login_as user, scope: :user
+
     visit root_path
     click_on 'Modelos de carros'
     click_on "details-#{c.id}"
@@ -39,7 +42,10 @@ feature 'Admin edits car_model' do
     cat_b = CarCategory.create!(name: 'B', daily_rate: "40.00", 
                                 car_insurance: "30.00", third_party_insurance: "30.00")
     c = CarModel.create!(name:'Uno', year: 2020, manufacturer: fiat, motorization: "1.0", car_category: cat_a, fuel_type: "flex")
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
     
+    login_as user, scope: :user
+
     visit root_path
     click_on 'Modelos de carros'
     click_on "details-#{c.id}"

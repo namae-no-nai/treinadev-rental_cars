@@ -2,6 +2,10 @@ require 'rails_helper'
 
 feature 'Admin register valid manufacturer' do
   scenario 'and name must be unique' do
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
+
     Manufacturer.create(name: 'Fiat' )
     visit root_path
     click_on 'Fabricantes'
@@ -14,6 +18,10 @@ feature 'Admin register valid manufacturer' do
   end
 
   scenario 'and name can not be blank' do
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
+
     visit root_path
     click_on 'Fabricantes'
     click_on 'Registrar fabricante'

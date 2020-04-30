@@ -4,6 +4,9 @@ feature 'Visitor view manufacturers' do
   scenario 'successfully' do
     Manufacturer.create!(name: 'Fiat')
     Manufacturer.create!(name: 'Volkswagen')
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
 
     visit root_path
     click_on 'Fabricantes'
@@ -15,6 +18,9 @@ feature 'Visitor view manufacturers' do
   scenario 'and view details' do
     Manufacturer.create!(name: 'Fiat')
     Manufacturer.create!(name: 'Volkswagen')
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
 
     visit root_path
     click_on 'Fabricantes'
@@ -25,15 +31,21 @@ feature 'Visitor view manufacturers' do
   end
 
   scenario 'and no manufacturers are created' do
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
     visit root_path
+    
     click_on 'Fabricantes'
-
     expect(page).to have_content('Nenhum fabricante cadastrado')
   end
 
   scenario 'and return to home page' do
     Manufacturer.create!(name: 'Fiat')
     Manufacturer.create!(name: 'Volkswagen')
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
 
     visit root_path
     click_on 'Fabricantes'
@@ -45,6 +57,9 @@ feature 'Visitor view manufacturers' do
   scenario 'and return to manufacturers page' do
     Manufacturer.create!(name: 'Fiat')
     Manufacturer.create!(name: 'Volkswagen')
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
 
     visit root_path
     click_on 'Fabricantes'

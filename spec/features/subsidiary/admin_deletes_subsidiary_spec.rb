@@ -3,6 +3,9 @@ require 'rails_helper'
 feature 'Admin deletes subsidiary' do
   scenario 'successfully' do
     Subsidiary.create!(name: 'Nova', cnpj: '14.380.277/0001-00', address: 'rua sem nome')
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
 
     visit root_path
     click_on 'Filiais'
@@ -16,6 +19,9 @@ feature 'Admin deletes subsidiary' do
   scenario 'and keep anothers' do
     Subsidiary.create!(name: 'Nova', cnpj: '14.380.277/0001-00', address: 'rua sem nome')
     Subsidiary.create!(name: 'Outra', cnpj: '31.538.806/0001-61', address: 'rua sem outro nome')
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
 
     visit root_path
     click_on 'Filiais'

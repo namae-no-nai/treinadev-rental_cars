@@ -3,6 +3,9 @@ require 'rails_helper'
 feature 'User edits subsidiary' do
   scenario 'successfully' do
     Subsidiary.create!(name: 'Nova', cnpj: '31.538.806/0001-61', address: 'rua sem nome, 00')
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
 
     # simula a ação do usuário
     visit root_path
@@ -24,6 +27,9 @@ feature 'User edits subsidiary' do
 
   scenario 'successfully' do
     Subsidiary.create!(name: 'Nova', cnpj: '31.538.806/0001-61', address: 'rua sem nome, 00')
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
 
     # simula a ação do usuário
     visit root_path
@@ -45,6 +51,9 @@ feature 'User edits subsidiary' do
   scenario 'unique Name' do
     Subsidiary.create!(name: 'Nova', cnpj: '31.538.806/0001-61', address: 'rua sem nome, 00')
     Subsidiary.create!(name: 'outra', cnpj: '14.380.277/0001-00', address: 'rua sem nome, 00')
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
 
     # simula a ação do usuário
     visit root_path
@@ -64,6 +73,9 @@ feature 'User edits subsidiary' do
   scenario 'unique CNPJ' do
     Subsidiary.create!(name: 'Nova', cnpj: '14.380.277/0001-00', address: 'rua sem nome, 00')
     Subsidiary.create!(name: 'outra', cnpj: '31.538.806/0001-61', address: 'rua sem nome, 00')
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
 
     # simula a ação do usuário
     visit root_path
@@ -82,7 +94,9 @@ feature 'User edits subsidiary' do
 
   scenario 'format' do
     Subsidiary.create!(name: 'Nova', cnpj: '14.380.277/0001-00', address: 'rua sem nome, 00')
-
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
 
     # simula a ação do usuário
     visit root_path
@@ -101,7 +115,9 @@ feature 'User edits subsidiary' do
 
   scenario 'exist' do
     Subsidiary.create!(name: 'Nova', cnpj: '14.380.277/0001-00', address: 'rua sem nome, 00')
-
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
 
     # simula a ação do usuário
     visit root_path

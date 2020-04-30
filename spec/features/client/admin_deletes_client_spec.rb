@@ -3,6 +3,9 @@ require 'rails_helper'
 feature 'Admin deletes client' do
   scenario 'successfully' do
     Client.create!(name: 'Algum nome', document: '588.647.870-11', email: "algum@algumacoisa.com")
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
 
     visit root_path
     click_on 'Clientes'
@@ -16,6 +19,9 @@ feature 'Admin deletes client' do
   scenario 'and keep anothers' do
     Client.create!(name: 'Algum nome', document: '588.647.870-11', email: "algum@algumacoisa.com")
     Client.create!(name: 'Outro nome', document: '079.471.830-23', email: "outro@algumacoisa.com")
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+    
+    login_as user, scope: :user
 
     visit root_path
     click_on 'Clientes'
