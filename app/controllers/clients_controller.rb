@@ -39,14 +39,14 @@ class ClientsController < ApplicationController
     redirect_to clients_path
   end
 
+  def search
+    @clients = Client.where(name: params[:q])
+    render :index
+  end
+
   private
 
   def client_params
     params.require(:client).permit(:name, :document , :email)
-  end
-
-  def search
-    @clients = Client.where(name: params[:q])
-    render :index
   end
 end

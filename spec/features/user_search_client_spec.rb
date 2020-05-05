@@ -13,10 +13,6 @@ feature 'User search customer' do
     click_on 'Buscar'
 
     expect(page).to have_content(client.name)
-    expect(page).to have_content(client.document)
-    expect(page).to have_content(client.email)
-    expect(page).to have_content(other_client.name)
-    expect(page).to have_content(other_client.document)
-    expect(page).to have_content(other_client.email)
+    expect(page).not_to have_content(other_client.name)
   end
 end
