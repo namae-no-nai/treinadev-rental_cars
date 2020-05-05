@@ -21,6 +21,11 @@ class RentalsController < ApplicationController
     end
   end
 
+  def search
+    @q = params[:q]
+    @rental = Rental.find_by(code: params[:q].upcase)
+  end
+
   private
 
   def rental_params

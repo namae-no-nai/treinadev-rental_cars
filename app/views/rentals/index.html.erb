@@ -1,9 +1,17 @@
-<h1>Fabricantes</h1>
+<h1>Locações</h1>
+
+<%= form_with url: search_rentals_path, method: :get do |f| %>
+  <%= f.label :q, 'Código'%>
+  <%= f.text_field :q%>
+  <%= f.submit 'Buscar'%>
+<% end %>
+
 <div>
 <% if @rentals.any? %>
    <table>
     <thead>
       <tr>
+        <th>Código</th>
         <th>Data de início</th>
         <th></th>
         <th>Data de término</th>
@@ -15,7 +23,8 @@
     </thead>
     <tbody>
       <% @rentals.each do |rental|%>
-      <tr>  
+      <tr>
+        <td><%= rental.code %></td>
         <td><%= localize(rental.start_date) %></td>
         <td></td>
         <td><%= localize(rental.end_date) %></td>

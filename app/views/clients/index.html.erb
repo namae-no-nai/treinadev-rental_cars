@@ -1,4 +1,10 @@
 <h1>Clientes</h1>
+
+<%= form_with url: search_clients_path, method: :get do |f| %>
+  <%= f.label :q, 'Busca'%>
+  <%= f.search_field :q%>
+  <%= f.submit 'Buscar'%>
+<%end%>
 <div>
 <% if @clients.any? %>
   <ul>

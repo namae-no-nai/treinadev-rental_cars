@@ -1,0 +1,25 @@
+  <% if @rental.blank? || @q.blank? %>
+    <p><%= "Nenhum resultado encontrado para: #{@q}"%>
+  <%else%>
+    <tr>
+        <th>Código</th>
+        <th>Data de início</th>
+        <th></th>
+        <th>Data de término</th>
+        <th></th>
+        <th>Cliente</th>
+        <th></th>
+        <th>Categoria</th>
+      </tr>
+    </thead>
+    <tbody>
+        <td><%= @rental.code %></td>
+        <td><%= localize(@rental.start_date) %></td>
+        <td></td>
+        <td><%= localize(@rental.end_date) %></td>
+        <td></td>
+        <td><%= @rental.client.name %></td>
+        <td></td>
+        <td><%= @rental.car_category.name %></td>
+      </tr> 
+    <%end%>     

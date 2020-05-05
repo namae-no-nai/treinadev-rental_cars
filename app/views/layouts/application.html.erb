@@ -18,7 +18,7 @@
         <%= link_to "Modelos de carros", car_models_path %>
         <%= link_to "Clientes", clients_path %>
         <%= link_to 'Sair', destroy_user_session_path, method: :delete %>
-      <% else %>
+      <% else %>   
         <%= link_to 'Entrar', new_user_session_path %>
       <% end %>
     <%= flash[:alert] %>

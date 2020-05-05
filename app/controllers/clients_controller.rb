@@ -44,4 +44,9 @@ class ClientsController < ApplicationController
   def client_params
     params.require(:client).permit(:name, :document , :email)
   end
+
+  def search
+    @clients = Client.where(name: params[:q])
+    render :index
+  end
 end
