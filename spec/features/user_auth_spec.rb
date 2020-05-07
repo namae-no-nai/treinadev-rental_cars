@@ -6,6 +6,7 @@ feature "User auth" do
       user = User.create!(email: "teste@teste.com", password: "12345678")
 
       visit root_path
+      click_on "Entrar"
       fill_in "Email", with: user.email
       fill_in "Senha", with: user.password
       within 'form' do
@@ -20,6 +21,7 @@ feature "User auth" do
 
     scenario 'and must fill in all fields' do
       visit root_path
+      click_on "Entrar"
       within 'form' do
         click_on 'Entrar'
       end
@@ -29,10 +31,11 @@ feature "User auth" do
     end
 
     context 'log out' do
-     xscenario 'successfully' do
+     scenario 'successfully' do
         user = User.create!(email: 'teste@teste.com.br', password: '12345678')
 
         visit root_path
+        click_on "Entrar"
         fill_in 'Email', with: user.email
         fill_in 'Senha', with: user.password
         within 'form' do
@@ -50,6 +53,7 @@ feature "User auth" do
     context 'sign up' do
       scenario 'successfully' do
         visit root_path
+        click_on "Entrar"
         click_on ('Criar conta')
         fill_in 'Email', with: 'test@test.com.br'
         fill_in 'Senha', with: '12345678'

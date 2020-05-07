@@ -1,4 +1,6 @@
 class ClientsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @clients = Client.all
   end
@@ -40,7 +42,7 @@ class ClientsController < ApplicationController
   end
 
   def search
-    @clients = Client.where(name: params[:q])
+    @clients = Client.search(params[:q])
     render :index
   end
 

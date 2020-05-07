@@ -17,13 +17,13 @@ feature 'Admin view car models' do
     click_on 'Modelos de carros'
     #Assert
     
-    expect(page).to have_content 'Fiat'
-    expect(page).to have_content 'Uno'
-    expect(page).to have_content '2020'
+    expect(page).to have_content('Fiat')
+    expect(page).to have_content('Uno')
+    expect(page).to have_content('2020')
 
-    expect(page).to have_content 'Ford'
-    expect(page).to have_content 'Ka'
-    expect(page).to have_content '2021'
+    expect(page).to have_content('Ford')
+    expect(page).to have_content('Ka')
+    expect(page).to have_content('2021')
   end 
 
     scenario 'and view details' do
@@ -40,12 +40,12 @@ feature 'Admin view car models' do
     click_on 'Modelos de carros'
     click_on "details-#{c.id}"
 
-    expect(page).to have_content 'Uno'
-    expect(page).to have_content 'Fiat'
-    expect(page).to have_content '2020'
-    expect(page).to have_content '2.0'
-    expect(page).to have_content 'A'
-    expect(page).to have_content 'flex'
-    expect(page).to have_content '40.00'
+    expect(page).to have_content('Uno')
+    expect(page).to have_content('Fiat')
+    expect(page).to have_content('2020')
+    expect(page).to have_content('2.0')
+    expect(page).to have_content('A')
+    expect(page).to have_content('flex')
+    expect(page).to have_content('40.00')
   end
 end

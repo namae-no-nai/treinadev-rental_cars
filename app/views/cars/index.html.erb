@@ -1,0 +1,42 @@
+<h1>Carros</h1>
+
+<% if @cars.any?%><table>
+    <thead>
+      <tr>
+        <th>Placa</th>
+        <th></th>
+        <th>Cor</th>
+        <th></th>
+        <th>Modelo do Carro</th>
+        <th></th>
+        <th>Kilometragem</th>
+        <th></th>
+        <th>Filial</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%@cars.each do |car|%>
+      <tr>
+        <td><%= car.license_plate %></td>
+        <td></td>
+        <td><%= car.color%></td>
+        <td></td>
+        <td><%= car.car_model.name %></td>
+        <td></td>
+        <td><%= car.mileage %></td>
+        <td></td>
+        <td><%= car.subsidiary.name %></td>
+        <td></td>
+        <td><%= link_to 'Ver Detalhes', car, id: "details-#{car.id}" %></td>
+      </tr>      
+      <%end%>
+    </tbody>
+  </table>
+<%else%>
+ <p>Nenhum carro registrado </p>
+<%end%>
+<br>
+<%= link_to "Cadastrar carro", new_car_path%><br>
+
+<%= link_to "Voltar", root_path%>

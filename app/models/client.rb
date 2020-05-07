@@ -5,6 +5,9 @@ class Client < ApplicationRecord
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP, message: 'Email incorreto' } 
 validate :document_must_be_valid
 
+scope :search, ->(query) { where('name LIKE ?', "%#{query}%")
+                              .or(where(document: query)) }
+
 private
   
   def document_must_be_valid
